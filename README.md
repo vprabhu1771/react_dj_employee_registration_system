@@ -16,3 +16,7 @@ cd react_dj_employee_registration_system
 npm install
 npm run dev
 ```
+
+```
+npm install react-router-dom
+```
