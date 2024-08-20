@@ -1,6 +1,6 @@
 export const fetchEmployees = async () => {
     try {
-        const response = await fetch('/api/employees/');
+        const response = await fetch('http://192.168.1.122:8000/api/employees/');
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
