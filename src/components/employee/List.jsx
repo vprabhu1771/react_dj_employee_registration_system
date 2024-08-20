@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { EmployeeContext } from '../context/EmployeeContext';
 
-function List() {
-  return (
-    <div>
-      <h1>Employee List</h1>
-    </div>
-  )
-}
+const EmployeeList = () => {
+    const { employees, setSelectedEmployee } = useContext(EmployeeContext);
 
-export default List;
+    return (
+        <div>
+            <h2>Employee List</h2>
+            <ul>
+                {employees.map(employee => (
+                    <li key={employee.id} onClick={() => setSelectedEmployee(employee)}>
+                        {employee.first_name} {employee.last_name}
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+};
+
+export default EmployeeList;
