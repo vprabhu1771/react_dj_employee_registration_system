@@ -21,10 +21,23 @@ function App() {
               <Route path="/" element={<Login />} />              
 
               {/* Wrap the Employee routes with EmployeeProvider */}
-              <Route element={<EmployeeProvider />}>
-                <Route path="/employees" element={<EmployeeList />} />
-                <Route path="/employees/:id" element={<EmployeeDetail />} />
-              </Route>   
+              <Route 
+            path="/employees" 
+            element={
+              <EmployeeProvider>
+                <EmployeeList />
+              </EmployeeProvider>
+            } 
+          />
+          <Route 
+            path="/employees/:id" 
+            element={
+              <EmployeeProvider>
+                <EmployeeDetail />
+              </EmployeeProvider>
+            } 
+          />
+              
 
           </Routes>
 
