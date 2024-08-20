@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import { EmployeeContext } from '../context/EmployeeContext';
+import { EmployeeContext } from '../../context/EmployeeContext';
+
 
 const EmployeeList = () => {
     const { employees, setSelectedEmployee } = useContext(EmployeeContext);
