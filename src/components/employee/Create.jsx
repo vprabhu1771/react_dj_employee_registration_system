@@ -35,39 +35,63 @@ const EmployeeForm = () => {
         }
     };
 
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     try {
+    //         const response = await fetch('http://192.168.1.122:8000/api/employees/', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //             },
+    //             body: JSON.stringify(formData),
+    //         });
+
+    //         if (response.ok) {
+    //             setSuccess('Employee created successfully!');
+    //             setFormData({ 
+    //                 first_name: '', 
+    //                 last_name: '', 
+    //                 email: '', 
+    //                 password: '', 
+    //                 department: '', 
+    //                 position: '',
+    //                 gender: '',
+    //                 hire_date: '',
+    //                 phone: ''
+    //             });
+    //             setErrors({});
+    //             setPhoneCount(0);
+    //         } else {
+    //             const errorData = await response.json();
+    //             setErrors(errorData);
+    //         }
+    //     } catch (error) {
+    //         console.error("Error creating employee:", error);
+    //         setErrors({ general: 'An error occurred. Please try again.' });
+    //     }
+    // };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            const response = await fetch('http://192.168.1.122:8000/api/employees/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
+        const result = await createEmployee(formData); // Use the API function
 
-            if (response.ok) {
-                setSuccess('Employee created successfully!');
-                setFormData({ 
-                    first_name: '', 
-                    last_name: '', 
-                    email: '', 
-                    password: '', 
-                    department: '', 
-                    position: '',
-                    gender: '',
-                    hire_date: '',
-                    phone: ''
-                });
-                setErrors({});
-                setPhoneCount(0);
-            } else {
-                const errorData = await response.json();
-                setErrors(errorData);
-            }
-        } catch (error) {
-            console.error("Error creating employee:", error);
-            setErrors({ general: 'An error occurred. Please try again.' });
+        if (result.success) {
+            setSuccess('Employee created successfully!');
+            setFormData({ 
+                first_name: '', 
+                last_name: '', 
+                email: '', 
+                password: '', 
+                department: '', 
+                position: '',
+                gender: '',
+                hire_date: '',
+                phone: ''
+            });
+            setErrors({});
+            setPhoneCount(0);
+        } else {
+            setErrors(result.errors);
         }
     };
 

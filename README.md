@@ -18,6 +18,10 @@ npm run dev
 ```
 
 ```
+npm install dotenv
+```
+
+```
 npm install react-router-dom
 ```
 
