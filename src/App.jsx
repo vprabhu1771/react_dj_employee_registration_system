@@ -5,6 +5,7 @@ import { ROUTES } from './config/routes';
 
 import Login from './components/auth/Login';
 
+import EmployeeForm from './components/employee/Create';
 import EmployeeList from './components/employee/List';
 import EmployeeDetail from './components/employee/Detail';
 import { EmployeeProvider } from './context/EmployeeContext'; // Import EmployeeProvider
@@ -20,7 +21,9 @@ function App() {
         <BrowserRouter>
 
           <Routes>
-              <Route path={ROUTES.HOME} element={<Login />} />              
+              <Route path={ROUTES.HOME} element={<Login />} /> 
+
+              <Route path="/employees/create" element={<EmployeeForm />} />             
 
               {/* Wrap the Employee routes with EmployeeProvider */}
               <Route 

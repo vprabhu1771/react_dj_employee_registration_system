@@ -14,6 +14,8 @@ const EmployeeList = () => {
     return (
         <div>
             <h2>Employee List</h2>
+            <Link
+                to={ROUTES.EMPLOYEE_CREATE}>Create Employee</Link>
             <table>
                 <thead>
                     <tr>
