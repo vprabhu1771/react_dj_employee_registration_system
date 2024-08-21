@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { EmployeeContext } from '../../context/EmployeeContext';
 import { Link } from 'react-router-dom';
 
+import { ROUTES } from '../../config/routes';
+
 import '../../assets/main.css';
 
 const EmployeeList = () => {
@@ -33,7 +35,7 @@ const EmployeeList = () => {
                         <td>{row.gender}</td>
                         <td>
                             <Link
-                                to={`/employees/${row.id}`}
+                                to={ROUTES.EMPLOYEE_DETAIL(row.id)}
                                 onClick={() => setSelectedEmployee(row)}>View</Link>
                         </td>
                     </tr>
