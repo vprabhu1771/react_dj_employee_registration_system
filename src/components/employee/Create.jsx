@@ -4,6 +4,8 @@ import { ROUTES } from '../../config/routes';
 
 import { Link } from 'react-router-dom';
 
+import { createEmployee } from '../../api/employeeApi';
+
 const EmployeeForm = () => {
     const [formData, setFormData] = useState({
         first_name: '',
@@ -192,7 +194,7 @@ const EmployeeForm = () => {
                             type="radio"
                             id="female"
                             name="gender"
-                            value="M"
+                            value="F"
                             checked={formData.gender === 'F'}
                             onChange={handleChange}
                             required
