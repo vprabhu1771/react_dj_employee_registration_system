@@ -154,22 +154,22 @@ const EmployeeForm = () => {
                     <div>
                         <input
                             type="radio"
-                            id="male"
+                            id="Male"
                             name="gender"
-                            value="male"
-                            checked={formData.gender === 'male'}
+                            value="M"
+                            checked={formData.gender === 'M'}
                             onChange={handleChange}
                             required
                         />
-                        <label htmlFor="male">Male</label>
+                        <label htmlFor="Male">Male</label>
                     </div>
                     <div>
                         <input
                             type="radio"
                             id="female"
                             name="gender"
-                            value="female"
-                            checked={formData.gender === 'female'}
+                            value="M"
+                            checked={formData.gender === 'F'}
                             onChange={handleChange}
                             required
                         />
