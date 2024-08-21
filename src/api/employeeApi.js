@@ -12,7 +12,13 @@ export const fetchEmployees = async () => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
-        const data = await response.json();
+        const responseData = await response.json();
+
+        // Extract the 'data' array from the response
+        const data = responseData.data;
+
+        console.log('Fetched employees:', data);
+        
         // Log the response for debugging
         // const responseText = await response.text();
         // console.log("Response Text:", responseText);
