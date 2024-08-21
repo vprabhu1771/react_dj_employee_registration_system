@@ -20,3 +20,49 @@ npm run dev
 ```
 npm install react-router-dom
 ```
+
+2. **Folder Setup**
+
+Folder Setup
+
+```
+project_name -> src -> api
+```
+
+```
+project_name -> src -> context
+```
+
+```
+project_name -> src -> components
+```
+
+```
+project_name -> src -> components -> auth
+```
+
+```
+project_name -> src -> components -> employee
+```
+
+File Setup
+
+```
+project_name -> src -> api -> employeeApi.js
+```
+
+```
+project_name -> src -> context -> EmployeeContext.jsx
+```
+
+```
+project_name -> src -> components -> auth -> Login.jsx
+```
+
+```
+project_name -> src -> components -> employee -> List.jsx
+```
+
+```
+project_name -> src -> components -> employee -> Detail.jsx
+```
