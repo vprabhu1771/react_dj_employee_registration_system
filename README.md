@@ -26,6 +26,10 @@ npm install react-router-dom
 Folder Setup
 
 ```
+project_name -> src -> config
+```
+
+```
 project_name -> src -> api
 ```
 
@@ -46,6 +50,10 @@ project_name -> src -> components -> employee
 ```
 
 File Setup
+
+```
+project_name -> src -> config -> routes.js
+```
 
 ```
 project_name -> src -> api -> employeeApi.js
