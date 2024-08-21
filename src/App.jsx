@@ -1,6 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
+import { ROUTES } from './config/routes';
+
 import Login from './components/auth/Login';
 
 import EmployeeList from './components/employee/List';
@@ -18,25 +20,26 @@ function App() {
         <BrowserRouter>
 
           <Routes>
-              <Route path="/" element={<Login />} />              
+              <Route path={ROUTES.HOME} element={<Login />} />              
 
               {/* Wrap the Employee routes with EmployeeProvider */}
               <Route 
-            path="/employees" 
-            element={
-              <EmployeeProvider>
-                <EmployeeList />
-              </EmployeeProvider>
-            } 
-          />
-          <Route 
-            path="/employees/:id" 
-            element={
-              <EmployeeProvider>
-                <EmployeeDetail />
-              </EmployeeProvider>
-            } 
-          />
+                path={ROUTES.EMPLOYEE_LIST} 
+                element={
+                  <EmployeeProvider>
+                    <EmployeeList />
+                  </EmployeeProvider>
+                } 
+              />
+
+              <Route 
+                path={ROUTES.EMPLOYEE_DETAIL(':id')}
+                element={
+                  <EmployeeProvider>
+                    <EmployeeDetail />
+                  </EmployeeProvider>
+                } 
+              />
               
 
           </Routes>
