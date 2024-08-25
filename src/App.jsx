@@ -13,7 +13,10 @@ import EmployeeList from './components/employee/List';
 import EmployeeDetail from './components/employee/Detail';
 import { EmployeeProvider } from './context/EmployeeContext'; // Import EmployeeProvider
 
+import NavBar from './components/NavBar';
+
 import './App.css'
+
 
 
 function App() {
@@ -23,6 +26,8 @@ function App() {
 
       <AuthProvider>
         <BrowserRouter>
+          
+          <NavBar />
 
           <Routes>
               <Route path={ROUTES.HOME} element={<Login />} /> 
