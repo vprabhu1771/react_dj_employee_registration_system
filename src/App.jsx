@@ -3,6 +3,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import { ROUTES } from './config/routes';
 
+import { AuthProvider } from './context/AuthContext';
+import PrivateRoute from './components/PrivateRoute';
+
 import Login from './components/auth/Login';
 
 import EmployeeForm from './components/employee/Create';
@@ -18,29 +21,41 @@ function App() {
     <>
       <div>
 
+      <AuthProvider>
         <BrowserRouter>
 
           <Routes>
               <Route path={ROUTES.HOME} element={<Login />} /> 
 
-              <Route path="/employees/create" element={<EmployeeForm />} />             
+              <Route 
+                path="/employees/create" 
+                element={
+                  <PrivateRoute>
+                  <EmployeeForm />
+                  </PrivateRoute>
+                } 
+              />
 
               {/* Wrap the Employee routes with EmployeeProvider */}
               <Route 
                 path={ROUTES.EMPLOYEE_LIST} 
                 element={
-                  <EmployeeProvider>
-                    <EmployeeList />
-                  </EmployeeProvider>
+                  <PrivateRoute>
+                    <EmployeeProvider>
+                      <EmployeeList />
+                    </EmployeeProvider>
+                  </PrivateRoute>
                 } 
               />
 
               <Route 
                 path={ROUTES.EMPLOYEE_DETAIL(':id')}
                 element={
-                  <EmployeeProvider>
-                    <EmployeeDetail />
-                  </EmployeeProvider>
+                  <PrivateRoute>
+                    <EmployeeProvider>
+                      <EmployeeDetail />
+                    </EmployeeProvider>
+                  </PrivateRoute>
                 } 
               />
               
@@ -48,6 +63,7 @@ function App() {
           </Routes>
 
         </BrowserRouter>
+      </AuthProvider>
 
       </div>
     </>

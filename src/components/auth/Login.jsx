@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 
+import { useAuth } from '../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
+
+
 const Login = () => {
+    
+    const { login } = useAuth();
+    const navigate = useNavigate();
+
     const [email, setEmail] = useState('admin@gmail.com');
     const [password, setPassword] = useState('admin');
     const [errors, setErrors] = useState({});
@@ -51,6 +59,11 @@ const Login = () => {
 
                     // Example: Logging token or other response data
                     console.log('Token:', data);
+
+                    // Set the authenticated state
+                    login();
+                    // Redirect to employees page
+                    navigate('/employees');
                 } else {
                     setMessage('Login failed. Please try again.');
                     setErrors(data.errors || {});
