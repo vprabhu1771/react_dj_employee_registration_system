@@ -44,13 +44,13 @@ const EmployeeList = () => {
                     ))}
                 </tbody>
             </table>
-            <ul>
+            {/* <ul>
                 {employees.map(employee => (
                     <li key={employee.id} onClick={() => setSelectedEmployee(employee)}>
                         {employee.first_name} {employee.last_name}
                     </li>
                 ))}
-            </ul>
+            </ul> */}
         </div>
     );
 };
