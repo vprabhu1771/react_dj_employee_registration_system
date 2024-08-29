@@ -7,7 +7,7 @@ export const fetchEmployees = async () => {
     
 
     try {
-        const response = await fetch(`http://192.168.1.122:8000/api/employees/`);        
+        const response = await fetch(`http://192.168.29.66:8000/api/employees/`);
 
         if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -32,7 +32,7 @@ export const fetchEmployees = async () => {
 
 export const createEmployee = async (employeeData) => {
     try {
-        const response = await fetch(`http://192.168.1.122:8000/api/employees/`, {
+        const response = await fetch(`http://192.168.29.66:8000/api/employees/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

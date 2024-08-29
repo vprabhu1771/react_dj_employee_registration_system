@@ -9,8 +9,8 @@ const Login = () => {
     const { login } = useAuth();
     const navigate = useNavigate();
 
-    const [email, setEmail] = useState('admin@gmail.com');
-    const [password, setPassword] = useState('admin');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [errors, setErrors] = useState({});
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState('');
@@ -25,8 +25,8 @@ const Login = () => {
 
         if (!password) {
             errors.password = 'Password is required';
-        } else if (password.length < 2) {
-            errors.password = 'Password must be at least 6 characters';
+        } else if (password.length < 5) {
+            errors.password = 'Password must be at least 5 characters';
         }
 
         return errors;
@@ -41,7 +41,7 @@ const Login = () => {
             setMessage('');
             
             try {
-                const response = await fetch('http://192.168.1.122:8000/api_v2/login', {
+                const response = await fetch('http://192.168.29.66:8000/api_v2/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

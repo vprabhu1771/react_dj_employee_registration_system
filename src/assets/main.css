@@ -6,3 +6,15 @@ table, th, td {
 th, td {
     padding: 10px;
 }
+table {
+    border-collapse: collapse; /* Optional: for better table styling */
+    width: auto; /* Adjust width as needed */
+    margin: auto; /* Auto margins to center horizontally */
+}
+
+/* Optional: Styling for the table itself */
+table, th, td {
+    border: 1px solid black; /* Basic border styling */
+    padding: 10px; /* Padding inside cells */
+    text-align: left; /* Text alignment inside cells */
+}
