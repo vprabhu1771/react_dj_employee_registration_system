@@ -11,9 +11,10 @@ const EmployeeList = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 5;
 
-    // Search logic
+    // Search logic including ID
     const filteredEmployees = employees.filter((employee) => {
         return (
+            employee.id.toString().includes(searchTerm.toLowerCase()) ||
             employee.first_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
             employee.last_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
             employee.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -51,12 +52,15 @@ const EmployeeList = () => {
             <h2>Employee List</h2>
             <Link to={ROUTES.EMPLOYEE_CREATE}>Create Employee</Link>
 
-            <input
-                type="text"
-                placeholder="Search employees..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-            />
+            <div className="search-container">
+                <input
+                    type="text"
+                    placeholder="Search employees by ID, name, email, or gender..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="search-input"
+                />
+            </div>
 
             <table>
                 <thead>
